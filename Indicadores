@@ -1,0 +1,7 @@
+import ta
+
+def calculate_indicators(df):
+    df['rsi'] = ta.momentum.RSIIndicator(df['close']).rsi()
+    df['macd'] = ta.trend.MACD(df['close']).macd()
+    df['ema'] = ta.trend.EMAIndicator(df['close'], window=14).ema_indicator()
+    return df.fillna(0)
