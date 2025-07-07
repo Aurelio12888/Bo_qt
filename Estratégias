@@ -1,0 +1,12 @@
+def run_strategies(df):
+    last = df.iloc[-1]
+    result = []
+
+    if last['rsi'] < 30:
+        result.append("RSI: Sobrevendido")
+    if last['macd'] > 0:
+        result.append("MACD: Tendência de alta")
+    if last['close'] > last['ema']:
+        result.append("EMA: Acima da média")
+
+    return result
